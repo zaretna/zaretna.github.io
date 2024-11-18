@@ -259,6 +259,23 @@ span {
   line-height: 1.5;
 }
 
+.tmptsmph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.tmptsmph-img img {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  width: 40vw;
+}
+
+.tmptsmph h3{
+  text-align: left;
+}
+
 .vid-container {
   display: flex;
   align-items: center;
