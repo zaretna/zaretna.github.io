@@ -88,7 +88,7 @@ body {
   bottom: -6px;
   width: 100%;
   height: 0.2rem;
-  background: var(--white-color);
+  background: var(--main-color);
 }
 
 .header.sticky .navbar a::before {
@@ -116,26 +116,6 @@ body {
 section {
   min-height: 100vh;
   padding: 10rem 7% 2rem;
-}
-
-.btn {
-  display: inline-block;
-  padding: 1.2rem 2.8rem;
-  background: var(--main-color);
-  border-radius: 0.6rem;
-  box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
-  font-size: 1.6rem;
-  color: var(--white-color);
-  letter-spacing: 0.1rem;
-  font-weight: 600;
-  border: 0.2rem solid transparent;
-  transition: 0.5s ease;
-}
-
-.btn:hover {
-  background: transparent;
-  color: var(--main-color);
-  border-color: var(--main-color);
 }
 
 span {
@@ -249,7 +229,7 @@ span {
 .about h3 {
   text-align: center;
   font-size: 3rem;
-  margin: 0;
+  margin-bottom: 15px;
 }
 
 .about p {
@@ -259,21 +239,174 @@ span {
   line-height: 1.5;
 }
 
-.tmptsmph {
+#check{
+  display: none;
+}
+
+.content{
+  display: none;
+}
+
+label {
+  font-size: 2rem;
+  display: inline-block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 1.2rem 2.8rem;
+  background: var(--main-color);
+  border-radius: .6rem;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  color: var(--white-color);
+  letter-spacing: .1rem;
+  border: .2rem solid transparent;
+}
+
+label:hover {
+  background: transparent;
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+#check:checked ~ .content{
+  display: block;
+}
+
+#check:checked ~ label{
+  visibility: hidden;
+}
+
+#check:checked ~ label:after{
+  content: 'Show Less';
+  display: block;
+  padding: 1.2rem 2.8rem;
+  margin-bottom: 10px;
+  background: var(--main-color);
+  border-radius: .6rem;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  color: var(--white-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  border: .2rem solid transparent;
+  visibility: visible;
+  cursor: pointer;
+}
+
+#check:checked ~ label:hover:after {
+  background: transparent;
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.card {
+  min-height: auto;
+  padding: 1rem 0;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card-box {
+  width: 250px;
+  height: 320px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-box:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.thefront, .theback {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.tmptsmph-img img {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  width: 40vw;
+.thefront {
+  background-size: cover;
+  background-position: center;
+  color: #fff;
 }
 
-.tmptsmph h3{
-  text-align: left;
+.theback {
+  background: #5fcf80;
+  color: #333;
+  transform: rotateY(180deg);
+}
+
+.animated-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-button:hover {
+  background-color: #45a049;
+}
+
+.animated-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, .5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.animated-button:hover::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+      transform: scale(0, 0);
+      opacity: 1;
+  }
+  20% {
+      transform: scale(25, 25);
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      transform: scale(40, 40);
+  }
 }
 
 .vid-container {
@@ -281,10 +414,11 @@ span {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 1rem 1rem;
+  padding: 5rem 1rem;
 }
 
 .vid-container .vid-wrapper {
+  position: relative;
   max-width: 100rem;
   width: 100%;
   padding: 5rem;
