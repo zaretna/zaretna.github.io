@@ -25,7 +25,7 @@
 }
 
 .dark-mode {
-  --bg-color: #0b061f;
+  --bg-color: #0b2c3d;
   --text-color: #fdfdfd;
   --shadow-color: rgba(0, 0, 0, 0.7);
 }
@@ -127,19 +127,59 @@ span {
   text-align: center;
 }
 
-.home h2 {
+.home {
+  display: flex;
+  align-items: center;
+  backdrop-filter: brightness(50%);
+  background: url('../images/Desain.jpg') center center / cover no-repeat;
+  
+}
+
+.home-content h1 {
+  font-size: 5.6rem;
+  font-weight: 750;
+  margin-bottom: .3rem;
+  color: #333;
+}
+
+.home-content p {
+  font-size: 1.6rem;
+  padding-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1.2rem 2.8rem;
+  background: var(--main-color);
+  border-radius: .6rem;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  font-size: 1.6rem;
+  color: var(--white-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  border: .2rem solid transparent;
+  transition: .5s ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.home-info h2 {
   text-align: center;
   padding-top: 0;
   margin-top: 0;
 }
 
-.home h3 {
+.home-info h3 {
   text-align: center;
   font-size: 3rem;
   margin: 0;
 }
 
-.home p{
+.home-info p{
   font-size: 1.6rem;
   margin: 1rem 0 1rem;
   text-align: justify;
@@ -147,8 +187,8 @@ span {
 
 .sampah {
   min-height: auto;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
 }
 
 .sampah .sampah-container {
@@ -298,20 +338,48 @@ label:hover {
   border-color: var(--main-color);
 }
 
+.horizontal-scroll{
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-color: transparent transparent;
+  padding: 2rem;
+}
+
+.horizontal-scroll::-webkit-scrollbar{
+  display: none;
+}
+
+.card h3, .vid-container h3{
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+}
+
+.card p{
+  margin: 20px;
+  margin-top: 0;
+  font-size: small;
+  text-align: center;
+}
+
+.card h2{
+  margin: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
 .card {
   min-height: auto;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   gap: 2.5rem;
-  max-width: 900px;
+  width: max-content;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  
 }
 
 .card-box {
@@ -319,6 +387,7 @@ label:hover {
   height: 320px;
   perspective: 1000px;
   cursor: pointer;
+  flex-wrap: wrap;
 }
 
 .card-inner {
@@ -360,7 +429,6 @@ label:hover {
 }
 
 .animated-button {
-  margin-top: 20px;
   padding: 10px 20px;
   background-color: #4CAF50;
   color: white;
