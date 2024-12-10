@@ -131,7 +131,7 @@ span {
   display: flex;
   align-items: center;
   backdrop-filter: brightness(50%);
-  background: url('../images/Desain.jpg') center center / cover no-repeat;
+  background: url('../images/home.jpg') center center / cover no-repeat;
   
 }
 
