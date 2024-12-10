@@ -132,7 +132,7 @@ span {
   align-items: center;
   backdrop-filter: brightness(50%);
   background: url('../images/home.jpg') center center / cover no-repeat;
-  
+  background-size: cover;
 }
 
 .home-content h1 {
