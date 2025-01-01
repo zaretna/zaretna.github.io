@@ -46,11 +46,12 @@ body {
   left: 0;
   width: 100%;
   padding: 2rem 7%;
-  background: transparent;
+  background: var(--bg-color);
   display: flex;
   align-items: center;
   z-index: 100;
   transition: 0.5s;
+  box-shadow: 0 0.1rem 1rem var(--shadow-color);
 }
 
 .header.sticky {
@@ -127,28 +128,9 @@ span {
   text-align: center;
 }
 
-.home {
-  display: flex;
-  align-items: center;
-  backdrop-filter: brightness(50%);
-  background: url('../images/home.jpg') center center / cover no-repeat;
-  background-size: cover;
-}
-
-.home-content h1 {
-  font-size: 5.6rem;
-  font-weight: 750;
-  margin-bottom: .3rem;
-  color: #333;
-}
-
-.home-content p {
-  font-size: 1.6rem;
-  padding-bottom: 2rem;
-}
-
 .btn {
   display: inline-block;
+  justify-content: flex-end;
   padding: 1.2rem 2.8rem;
   background: var(--main-color);
   border-radius: .6rem;
@@ -165,6 +147,26 @@ span {
   background: transparent;
   color: var(--main-color);
   border-color: var(--main-color);
+}
+
+.home {
+  display: grid;
+  align-items: center;
+  backdrop-filter: brightness(50%);
+  background: url('../images/home.jpg') center center / cover no-repeat;
+  background-size: cover;
+}
+
+.home-content h1 {
+  font-size: 5.6rem;
+  font-weight: 750;
+  margin-bottom: .3rem;
+  color: #333;
+}
+
+.home-content p {
+  font-size: 1.6rem;
+  padding-bottom: 2rem;
 }
 
 .home-info h2 {
@@ -423,7 +425,7 @@ label:hover {
 }
 
 .theback {
-  background: #5fcf80;
+  background: #e0ede8;
   color: #333;
   transform: rotateY(180deg);
 }
@@ -460,6 +462,30 @@ label:hover {
 
 .animated-button:hover::after {
   animation: ripple 1s ease-out;
+}
+
+.page h3 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.page p{
+  font-size: 1.6rem;
+  margin: 1rem 0 1rem;
+  text-align: justify;
+}
+
+table {
+  width: 50%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+th, td {
+  border: 1px solid var(--text-color);
+  padding: 10px;
+  text-align: center;
+  font-size: 1.4rem;
 }
 
 @keyframes ripple {
@@ -514,8 +540,19 @@ label:hover {
 .vid-slide video {
   width: 100%;
   max-width: 704px;
-  height: auto;
+  height: 100%;
   max-height: 330px;
+  object-fit: cover;
+  border: .5rem solid var(--bg-color);
+  outline: .5rem solid var(--main-color);
+}
+
+.vid-slide iframe {
+  width: 100%;
+  max-width: 704px;
+  height: 100%;
+  max-height: 330px;
+  display: block;
   object-fit: cover;
   border: .5rem solid var(--bg-color);
   outline: .5rem solid var(--main-color);
